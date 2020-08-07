@@ -10,3 +10,4 @@ Since its release in early 2018, Iv'e been a hardcore fan of Monster Hunter Worl
 * AAU, I can click the right arrow located on the right of the screen in the wyvern pages to scroll through monsters to select.
 
 ## Wire-Frame
+(https://i.imgur.com/TPZakmi.jpg)
