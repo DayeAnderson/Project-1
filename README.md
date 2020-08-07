@@ -20,13 +20,10 @@ Since its release in early 2018, Iv'e been a hardcore fan of Monster Hunter Worl
 
 ## Wire-Frame
 #### This is the first page of the site that will appear to the user
-Digital WireFrame
 ![Image of Home/Main page](images/1-Wyvern-Page.png)
 #### After clicking on one of the wyvern types, you will be brought to this page displaying the monsters of selected wyvern type
-Digital Frame
 ![Image of Home/Main page](images/2-Monster-List.png)
 #### After clicking on a monster you will be redirected to this page displaying the slected monster's information
-Digital WireFrame
 ![Image of Home/Main page](images/3-Monster-Details.png)
 
 
