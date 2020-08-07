@@ -9,6 +9,15 @@ Since its release in early 2018, Iv'e been a hardcore fan of Monster Hunter Worl
 * AAU, I can play the personal monster theme music from within the individual monster profile by clicking on the "Play Theme" button on the bottom right of the page
 * AAU, I can click the right arrow located on the right of the screen in the wyvern pages to scroll through monsters to select.
 
+### Psuedo Code
+
+
+
+
+
+
+
+
 ## Wire-Frame
-https://i.imgur.com/TPZakmi.jpg
+
 
