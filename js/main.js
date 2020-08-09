@@ -5,7 +5,7 @@ const fangWy = document.getElementById('fang')
 const birdWy = document.getElementById('bird')
 const piscineWy = document.getElementById('piscine')
 const elderWy = document.getElementById('elder')
-
+const dex = document.getElementById('monsterDex')
 //vars
 
 //event listeners
@@ -15,6 +15,9 @@ const elderWy = document.getElementById('elder')
 
 const fetchMonsters = () => {
     for(let i = 17; i <= 60; i++){
+        if(i === 45) {
+            i = i + 3
+        }
     const url = `https://mhw-db.com/monsters/${i}`;
     fetch(url)
     .then( res => {
@@ -33,6 +36,7 @@ const fetchMonsters = () => {
     })
     }
 };
+
 
 
 fetchMonsters();

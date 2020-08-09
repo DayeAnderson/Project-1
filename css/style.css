@@ -1,0 +1,9 @@
+#head {
+    text-align: center;
+}
+#wyvern {
+    display: flex;
+}
+.wyv {
+    margin: 0 auto;
+}

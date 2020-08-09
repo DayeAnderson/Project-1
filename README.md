@@ -11,10 +11,12 @@ Since its release in early 2018, Iv'e been a hardcore fan of Monster Hunter Worl
 
 ### Psuedo Code
 1. add the HTML for the containers on the main page
-2. fetch the data of monsters using the monster hunter api
-3. create cache element ref for the containers 
-4. add event listeners to the containers so when clicked on it takes you to a list of the monsters within that container
-5. add event listener to conainers with that container so when container is clicked on it shows monster info
+2. make a link for when
+3. fetch the data of monsters using the monster hunter api
+4. create cache element ref for the containers 
+5. add event listeners to the containers so when clicked on it takes you to a list of the monsters within that container
+6. add event listener to conainers with that container so when container is clicked on it shows monster info
+7. 
 
 
 
