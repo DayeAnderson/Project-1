@@ -10,7 +10,11 @@ Since its release in early 2018, Iv'e been a hardcore fan of Monster Hunter Worl
 * AAU, I can click the right arrow located on the right of the screen in the wyvern pages to scroll through monsters to select.
 
 ### Psuedo Code
-
+1. add the HTML for the containers on the main page
+2. fetch the data of monsters using the monster hunter api
+3. create cache element ref for the containers 
+4. add event listeners to the containers so when clicked on it takes you to a list of the monsters within that container
+5. add event listener to conainers with that container so when container is clicked on it shows monster info
 
 
 
