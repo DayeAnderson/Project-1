@@ -14,24 +14,24 @@ const elderWy = document.getElementById('elder')
 
 
 const fetchMonsters = () => {
-    const url = `https://mhw-db.com/monsters/`;
+    for(let i = 17; i <= 60; i++){
+    const url = `https://mhw-db.com/monsters/${i}`;
     fetch(url)
     .then( res => {
         return res.json();
     })
     .then((data) => {
         console.log(data);
-        const monster = {};
-        monster['name'] = data.name;
-        monster['species'] = data.species;
-        monster['ailments'] = data.ailments;
-        monster
-        monster['elements'] = data.elements;
-        monster['weaknesses'] = data.weaknesses;
-        monster['description'] = data.description;
+        const monster = {
+            name: data.name,
+            species: data.species,
+            elements: data.elements.map((elements) => elements).join(', '),
+            weaknesses: data.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
+            description: data.description
+        };
         console.log(monster);
     })
-   
+    }
 };
 
 
