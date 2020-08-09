@@ -14,27 +14,27 @@ const dex = document.getElementById('monsterDex')
 
 
 const fetchMonsters = () => {
+
+    const promises = []
     for(let i = 17; i <= 60; i++){
         if(i === 45) {
             i = i + 3
         }
-    const url = `https://mhw-db.com/monsters/${i}`;
-    fetch(url)
-    .then( res => {
-        return res.json();
-    })
-    .then((data) => {
-        console.log(data);
-        const monster = {
+        const url = `https://mhw-db.com/monsters/${i}`;
+        promises.push(fetch(url).then( (res) => res.json()));
+    }
+
+    Promise.all(promises).then(results => {
+        const monster = results.map((data) => ({
             name: data.name,
             species: data.species,
+            description: data.description,
             elements: data.elements.map((elements) => elements).join(', '),
             weaknesses: data.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
-            description: data.description
-        };
-        console.log(monster);
-    })
-    }
+        }));
+        console.log(monster)
+    });
+    
 };
 
 
