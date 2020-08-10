@@ -42,9 +42,11 @@ const fetchMonsters = () => {
 const displayMonster = (monster) => {
     console.log(monster);
     newMonst = monster.sort((a, b, c) => (a.species > b.species) ? 1 : -1)
-   
-    console.log(newMonst)
-    const monsterString = monster.map(monst => `
+    newMonst = monster.filter(monster => monster.species !== "elder dragon");
+    elder = monster.filter(monster => monster.species === "elder dragon");
+    sortedMonst = newMonst.concat(elder);
+    console.log(sortedMonst)
+    const monsterString = sortedMonst.map(monst => `
     <li class = "card">
         <h2 class = "card-title">${monst.name}</h2>
         <p class = "card-subtitle">Species: ${monst.species}</p>
