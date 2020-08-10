@@ -5,7 +5,8 @@ const fangWy = document.getElementById('fang')
 const birdWy = document.getElementById('bird')
 const piscineWy = document.getElementById('piscine')
 const elderWy = document.getElementById('elder')
-const dex = document.getElementById('monsterDex')
+const monsterDex = document.getElementById('monsterDex')
+
 //vars
 
 //event listeners
@@ -32,11 +33,20 @@ const fetchMonsters = () => {
             elements: data.elements.map((elements) => elements).join(', '),
             weaknesses: data.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
         }));
-        console.log(monster)
+        displayMonster(monster)
     });
     
 };
 
-
+const displayMonster = (monster) => {
+    console.log(monster);
+    const monsterString = monster.map(monst => `
+    <li class = "card">
+        <h2 class = "card-title">${monst.name}</h2>
+        <p class = "card-subtitle">Species: ${monst.species}</p>
+    </li>`
+    ).join('');
+    monsterDex.innerHTML = monsterString;
+}; 
 
 fetchMonsters();

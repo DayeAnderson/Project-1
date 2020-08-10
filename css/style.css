@@ -1,3 +1,7 @@
+body {
+    background-color: orangered;
+    margin: 0;
+}
 #head {
     text-align: center;
 }
@@ -7,3 +11,14 @@
 .wyv {
     margin: 0 auto;
 }
+.card {
+    list-style: none;
+    background-color: palegoldenrod;
+}
+#monsterDex {
+    padding-inline-start: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    grid-gap: 10px;
+}
+
