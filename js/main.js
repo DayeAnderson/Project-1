@@ -23,6 +23,7 @@ const fetchMonsters = () => {
         }
         const url = `https://mhw-db.com/monsters/${i}`;
         promises.push(fetch(url).then( (res) => res.json()));
+        
     }
 
     Promise.all(promises).then(results => {
@@ -40,6 +41,9 @@ const fetchMonsters = () => {
 
 const displayMonster = (monster) => {
     console.log(monster);
+    newMonst = monster.sort((a, b, c) => (a.species > b.species) ? 1 : -1)
+   
+    console.log(newMonst)
     const monsterString = monster.map(monst => `
     <li class = "card">
         <h2 class = "card-title">${monst.name}</h2>
