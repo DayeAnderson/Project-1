@@ -14,45 +14,39 @@ const monsterDex = document.getElementById('monsterDex')
 
 
 
-const fetchMonsters = () => {
-
-    const promises = []
-    for(let i = 17; i <= 60; i++){
-        if(i === 45) {
-            i = i + 3
-        }
-        const url = `https://mhw-db.com/monsters/${i}`;
-        promises.push(fetch(url).then( (res) => res.json()));
-        
-    }
-
-    Promise.all(promises).then(results => {
-        const monster = results.map((data) => ({
-            name: data.name,
-            species: data.species,
-            description: data.description,
-            elements: data.elements.map((elements) => elements).join(', '),
-            weaknesses: data.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
-        }));
-        displayMonster(monster)
-    });
+const fetchMonsters = async () => {
     
+    const url = `https://mhw-db.com/monsters`;
+    const res = await fetch(url);
+    const data = await res.json();
+    console.log(data)
+    let monster = data.map( (result, index) => ({
+    ...result.url,
+    name: result.name,
+    species: result.species,
+    type: result.type,
+    id: index + 1,
+    }));
+    displayMonster(monster);
 };
 
 const displayMonster = (monster) => {
-    console.log(monster);
-    newMonst = monster.sort((a, b, c) => (a.species > b.species) ? 1 : -1)
-    newMonst = monster.filter(monster => monster.species !== "elder dragon");
+    noSmall = monster.filter(monster => monster.type === "large" && monster.species !== "elder dragon")
     elder = monster.filter(monster => monster.species === "elder dragon");
-    sortedMonst = newMonst.concat(elder);
+    sortedMonst = noSmall.concat(elder);
+    console.log(noSmall)
     console.log(sortedMonst)
     const monsterString = sortedMonst.map(monst => `
-    <li class = "card">
-        <h2 class = "card-title">${monst.name}</h2>
+    <li class = "card" onclick = "selectMonster(${monst.id})">
         <p class = "card-subtitle">Species: ${monst.species}</p>
+        <h2 class = "card-title">${monst.name}</h2>
     </li>`
     ).join('');
     monsterDex.innerHTML = monsterString;
 }; 
+
+const selectMonster = (id) => {
+    console.log(id);
+}
 
 fetchMonsters();

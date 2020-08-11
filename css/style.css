@@ -1,5 +1,5 @@
 body {
-    background-color: orangered;
+    background-image: url(https://i.imgur.com/8MKTvrQ.jpg);
     margin: 0;
 }
 #head {
@@ -12,8 +12,12 @@ body {
     margin: 0 auto;
 }
 .card {
+    text-align: center;
     list-style: none;
-    background-color: palegoldenrod;
+    color: white;
+    font-family: 'Antic Slab', serif;
+    background-color: red;
+    
 }
 #monsterDex {
     padding-inline-start: 0;
