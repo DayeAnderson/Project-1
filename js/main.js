@@ -29,6 +29,7 @@ const fetchMonsters = async () => {
     weaknesses: result.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
     id: index + 1 
     }));
+    console.log(data)
     displayMonster(monster);
 };
 
@@ -40,17 +41,16 @@ const displayMonster = (monster) => {
     const monsterString = noSmall.map(monst => `
     <li class = "card" onclick = "selectMonster(${monst.id})">
         <h2 class = "card-title">${monst.name}</h2>
+        <p class = "card-subtitle">${monst.species}</p>
     </li>`
     ).join('');
     monsterDex.innerHTML = monsterString;
 };
 
 const selectMonster = async (id) => {
-    if(id >= 48) {
+    if(id >= 46) {
         id = id + 2;
-    } if(id === [46, 47]){
-        id[46, 47].hide()
-    }
+    } 
     const url = `https://mhw-db.com/monsters/${id}`;
     const res = await fetch(url);
     const monst = await res.json();
