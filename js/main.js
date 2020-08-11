@@ -16,37 +16,49 @@ const monsterDex = document.getElementById('monsterDex')
 
 const fetchMonsters = async () => {
     
-    const url = `https://mhw-db.com/monsters`;
+    const url = `https://mhw-db.com/monsters/`;
     const res = await fetch(url);
     const data = await res.json();
     console.log(data)
-    let monster = data.map( (result, index) => ({
+    const monster = data.map( (result, index) => ({
     ...result.url,
     name: result.name,
     species: result.species,
     type: result.type,
-    id: index + 1,
+    elements: result.elements.map((elements) => elements).join(', '),
+    weaknesses: result.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
+    id: index + 1 
     }));
     displayMonster(monster);
 };
 
 const displayMonster = (monster) => {
-    noSmall = monster.filter(monster => monster.type === "large" && monster.species !== "elder dragon")
-    elder = monster.filter(monster => monster.species === "elder dragon");
-    sortedMonst = noSmall.concat(elder);
+    
+    noSmall = monster.filter(monster => monster.type === "large") 
+    
     console.log(noSmall)
-    console.log(sortedMonst)
-    const monsterString = sortedMonst.map(monst => `
+    const monsterString = noSmall.map(monst => `
     <li class = "card" onclick = "selectMonster(${monst.id})">
-        <p class = "card-subtitle">Species: ${monst.species}</p>
         <h2 class = "card-title">${monst.name}</h2>
     </li>`
     ).join('');
     monsterDex.innerHTML = monsterString;
-}; 
+};
 
-const selectMonster = (id) => {
-    console.log(id);
+const selectMonster = async (id) => {
+    if(id >= 48) {
+        id = id + 2;
+    } if(id === [46, 47]){
+        id[46, 47].hide()
+    }
+    const url = `https://mhw-db.com/monsters/${id}`;
+    const res = await fetch(url);
+    const monst = await res.json();
+    displayPopUp(monst);
+
+};
+const displayPopUp = (monst) => {
+    console.log(monst)
 }
 
 fetchMonsters();
