@@ -58,7 +58,7 @@ const selectMonster = async (id) => {
 
 };
 const displayPopUp = (monst) => {
-    const htmlString = `
+        const htmlString = `
         <div class = "popup">
             <button id = "closeBtn"
             onclick = "closePopup()">Close</
@@ -67,11 +67,17 @@ const displayPopUp = (monst) => {
                 <h2 class = "card-title">${monst.name}</h2>
                 <p>Element: ${monst.elements}<p>
                 <p>Description: ${monst.description}<p>
-                <p>Weaknesses: ${monst.weaknesses}<p>
+                <p>Weaknesses: ${monst.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', ')}<p>
             </div>
         </div>
         `;
+         monsterDex.innerHTML = htmlString + monsterDex.innerHTML
         console.log(htmlString)
-}
+};
+
+const closePopup = () => {
+    const popup = document.querySelector('.popup')
+    popup.parentElement.removeChild(popup);
+};
 
 fetchMonsters();
