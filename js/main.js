@@ -34,8 +34,8 @@ const displayMonster = (monster) => {
     console.log(noSmall)
     const monsterString = noSmall.map(monst => `
     <li class = "card" onclick = "selectMonster(${monst.id})">
+        <img class = "icon" src = "images/icon${monst.id}.png"/>
         <h2 class = "card-title">${monst.name}</h2>
-        <p>${monst.id}</p>
         <p class = "card-subtitle">${monst.species}</p>
     </li>`
     ).join('');
@@ -55,6 +55,9 @@ const selectMonster = async (id) => {
 
 };
 const displayPopUp = (monst) => {
+    if(monst.id >= 46) {
+        monst.id = monst.id - 2;
+    } 
         const htmlString = `
         <div class = "popup">
         <div>
@@ -64,7 +67,7 @@ const displayPopUp = (monst) => {
             </div>
             <div class = "cards">
                 <h2 class = "card-title">${monst.name}</h2>
-                <img class = "mon" src = "images/mon${monst.id}.jpeg"/>
+                <img class = "mon" src = "images/mon${monst.id}.png"/>
                 <p id = "ele">Element: ${monst.elements}<p>
                 <p id = "desc">Description: ${monst.description}<p>
                 <p id = "weak">Weaknesses: ${monst.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars + "🌟").join(', ')}<p>
