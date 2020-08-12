@@ -1,10 +1,4 @@
 //chached element refs
-const bruteWy = document.getElementById("brute")
-const flyWy = document.getElementById('fly')
-const fangWy = document.getElementById('fang')
-const birdWy = document.getElementById('bird')
-const piscineWy = document.getElementById('piscine')
-const elderWy = document.getElementById('elder')
 const monsterDex = document.getElementById('monsterDex')
 const poppy = document.getElementsByClassName('popup')
 //vars
@@ -27,7 +21,7 @@ const fetchMonsters = async () => {
     type: result.type,
     elements: result.elements.map((elements) => elements).join(', '),
     weaknesses: result.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
-    id: index + 1 
+    id: index + 1
     }));
     console.log(data)
     displayMonster(monster);
@@ -41,9 +35,11 @@ const displayMonster = (monster) => {
     const monsterString = noSmall.map(monst => `
     <li class = "card" onclick = "selectMonster(${monst.id})">
         <h2 class = "card-title">${monst.name}</h2>
+        <p>${monst.id}</p>
         <p class = "card-subtitle">${monst.species}</p>
     </li>`
     ).join('');
+    
     monsterDex.innerHTML = monsterString;
 };
 
@@ -56,6 +52,7 @@ const selectMonster = async (id) => {
     const monst = await res.json();
     displayPopUp(monst);
 
+
 };
 const displayPopUp = (monst) => {
         const htmlString = `
@@ -67,10 +64,10 @@ const displayPopUp = (monst) => {
             </div>
             <div class = "cards">
                 <h2 class = "card-title">${monst.name}</h2>
-                <img class = "card-image" src = "images/azure.png"
+                <img class = "mon" src = "images/mon${monst.id}.jpeg"/>
                 <p id = "ele">Element: ${monst.elements}<p>
                 <p id = "desc">Description: ${monst.description}<p>
-                <p id = "weak">Weaknesses: ${monst.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', ')}<p>
+                <p id = "weak">Weaknesses: ${monst.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars + "🌟").join(', ')}<p>
             </div>
         </div>
         `;
