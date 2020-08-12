@@ -58,7 +58,20 @@ const selectMonster = async (id) => {
 
 };
 const displayPopUp = (monst) => {
-    console.log(monst)
+    const htmlString = `
+        <div class = "popup">
+            <button id = "closeBtn"
+            onclick = "closePopup()">Close</
+            button>
+            <div class = "card">
+                <h2 class = "card-title">${monst.name}</h2>
+                <p>Element: ${monst.elements}<p>
+                <p>Description: ${monst.description}<p>
+                <p>Weaknesses: ${monst.weaknesses}<p>
+            </div>
+        </div>
+        `;
+        console.log(htmlString)
 }
 
 fetchMonsters();
