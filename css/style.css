@@ -41,30 +41,37 @@ body {
     animation: slideInDown;
     animation-duration: 0.5s;
     
+    
 }
 
 
 #closeBtn {
     color: black;
     background-color: blanchedalmond;
-    top: 10px;
-    left: 70px;
+    opacity: 0.6;
     font-size: 15px;
     
+    
+}
+
+.card-image {
+    height: 300px;
+    position: relative;
+    display: flex;
+    left: 350px;
+    bottom: 30px;
 }
 
 button {
     padding: 10px 20px;
     border: none;
     color: white;
-    border-radius: 3px;
-    transition: transform 100ms;
-    display: flex;
+    border-radius: 5px;
+    
 }
 .cards {
-    display: grid;
+    
     color: rgba(136, 50, 0, 0.973);
-    grid-template-columns: auto;
     text-align: center;
     font-size: 30px;
 }

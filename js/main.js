@@ -6,7 +6,7 @@ const birdWy = document.getElementById('bird')
 const piscineWy = document.getElementById('piscine')
 const elderWy = document.getElementById('elder')
 const monsterDex = document.getElementById('monsterDex')
-
+const poppy = document.getElementsByClassName('popup')
 //vars
 
 //event listeners
@@ -67,6 +67,7 @@ const displayPopUp = (monst) => {
             </div>
             <div class = "cards">
                 <h2 class = "card-title">${monst.name}</h2>
+                <img class = "card-image" src = "images/azure.png"
                 <p id = "ele">Element: ${monst.elements}<p>
                 <p id = "desc">Description: ${monst.description}<p>
                 <p id = "weak">Weaknesses: ${monst.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', ')}<p>
@@ -80,7 +81,6 @@ const displayPopUp = (monst) => {
 const closePopup = () => {
     const popup = document.querySelector('.popup')
     popup.parentElement.removeChild(popup);
-
 };
 
 fetchMonsters();
