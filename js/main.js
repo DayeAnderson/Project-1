@@ -3,13 +3,12 @@ const monsterDex = document.getElementById('monsterDex')
 const poppy = document.getElementsByClassName('popup')
 
 
-
+//functions
 const fetchMonsters = async () => {
     
     const url = `https://mhw-db.com/monsters/`;
     const res = await fetch(url);
     const data = await res.json();
-    console.log(data)
     const monster = data.map( (result, index) => ({
     ...result.url,
     name: result.name,
@@ -19,9 +18,25 @@ const fetchMonsters = async () => {
     weaknesses: result.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
     id: index + 1
     }));
-    console.log(data)
     displayMonster(monster);
 };
+
+// const fetchWeapons = async () => {
+//     const url = `https://mhw-db.com/weapons/`;
+//     const res = await fetch(url);
+//     const dataW = await res.json();
+//     console.log(dataW)
+//     const weapon = dataW.map((result, index) => ({
+//         ...result.url,
+//         name: result.name,
+//         type: result.type,
+//         element: result.elements.map((elements) => elements).join(' '),
+//         id: index
+//     }));
+//     console.log(weapon);
+    
+
+// }
 
 const displayMonster = (monster) => {
     
@@ -35,7 +50,6 @@ const displayMonster = (monster) => {
         <p class = "card-subtitle">${monst.species}</p>
     </li>`
     ).join('');
-    
     monsterDex.innerHTML = monsterString;
 };
 
@@ -47,14 +61,16 @@ const selectMonster = async (id) => {
     const res = await fetch(url);
     const monst = await res.json();
     displayPopUp(monst);
-
-
 };
 
 const displayPopUp = (monst) => {
     if(monst.id >= 46) {
         monst.id = monst.id - 2;
-    }
+    } 
+    // if(monst.id === 22) {
+    //     document.querySelector('input').style.display = 'none';
+    // }
+    
         const htmlString = `
         <div class = "popup">
         <div>
@@ -73,7 +89,6 @@ const displayPopUp = (monst) => {
             </div>
         </div>
         `;
-
          monsterDex.innerHTML = htmlString + monsterDex.innerHTML
         console.log(htmlString)
 };
@@ -85,6 +100,8 @@ const closePopup = () => {
 function play() {
     let audio = document.getElementById("audio");
     audio.play();
-  }
+  };
 
 fetchMonsters();
+
+// fetchWeapons();
