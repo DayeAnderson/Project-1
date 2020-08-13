@@ -1,6 +1,7 @@
 //chached element refs
 const monsterDex = document.getElementById('monsterDex')
 const poppy = document.getElementsByClassName('popup')
+const block = document.getElementById('mus')
 //vars
 
 //event listeners
@@ -66,8 +67,9 @@ const displayPopUp = (monst) => {
             button>
             </div>
             <div class = "cards">
-                <h2 class = "card-title">${monst.name}</h2>
-                <img class = "mon" src = "images/mon${monst.id}.png"/>
+                <h2 class = "card-title" onclick = "play()">${monst.name}</h2>
+                <img id = "mon" onclick = "play()" src = "images/mon${monst.id}.png"/>
+                <audio id = "audio" src = "theme${monst.id}.wav"></audio>
                 <p id = "ele">Element: ${monst.elements}<p>
                 <p id = "desc">Description: ${monst.description}<p>
                 <p id = "weak">Weaknesses: ${monst.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars + "🌟").join(', ')}<p>
@@ -82,5 +84,6 @@ const closePopup = () => {
     const popup = document.querySelector('.popup')
     popup.parentElement.removeChild(popup);
 };
+
 
 fetchMonsters();
