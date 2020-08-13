@@ -1,11 +1,6 @@
 //chached element refs
 const monsterDex = document.getElementById('monsterDex')
 const poppy = document.getElementsByClassName('popup')
-const block = document.getElementById('mus')
-//vars
-
-//event listeners
-
 
 
 
@@ -55,10 +50,11 @@ const selectMonster = async (id) => {
 
 
 };
+
 const displayPopUp = (monst) => {
     if(monst.id >= 46) {
         monst.id = monst.id - 2;
-    } 
+    }
         const htmlString = `
         <div class = "popup">
         <div>
@@ -66,16 +62,18 @@ const displayPopUp = (monst) => {
             onclick = "closePopup()">X</
             button>
             </div>
+            <audio id = "audio" src = '/musica/theme${monst.id}.wav'></audio>
             <div class = "cards">
-                <h2 class = "card-title" onclick = "play()">${monst.name}</h2>
-                <img id = "mon" onclick = "play()" src = "images/mon${monst.id}.png"/>
-                <audio id = "audio" src = "theme${monst.id}.wav"></audio>
+                <h2 class = "card-title">${monst.name}</h2>
+                <img id = "mon" src = "images/mon${monst.id}.png"/>
+                <input id = "butt" type = "button" value = "Play Theme" onclick = "play()">
                 <p id = "ele">Element: ${monst.elements}<p>
                 <p id = "desc">Description: ${monst.description}<p>
                 <p id = "weak">Weaknesses: ${monst.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars + "🌟").join(', ')}<p>
             </div>
         </div>
         `;
+
          monsterDex.innerHTML = htmlString + monsterDex.innerHTML
         console.log(htmlString)
 };
@@ -84,6 +82,9 @@ const closePopup = () => {
     const popup = document.querySelector('.popup')
     popup.parentElement.removeChild(popup);
 };
-
+function play() {
+    let audio = document.getElementById("audio");
+    audio.play();
+  }
 
 fetchMonsters();

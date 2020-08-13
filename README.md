@@ -10,16 +10,32 @@ Since its release in early 2018, Iv'e been a hardcore fan of Monster Hunter Worl
 * AAU, I can click the right arrow located on the right of the screen in the wyvern pages to scroll through monsters to select.
 
 ### Psuedo Code
-1. add the HTML for the containers on the main page
-2. make a link for when
-3. fetch the data of monsters using the monster hunter api
-4. create cache element ref for the containers 
-5. add event listeners to the containers so when clicked on it takes you to a list of the monsters within that container
-6. add event listener to conainers with that container so when container is clicked on it shows monster info
-7. 
 
-
-
+1. add HTML for header text
+2. use a promise to fetch the data of monsters using the monster hunter api
+3. convert results from promise into an array of monsters
+4. create a function to display monsters on screen 
+5. create an ordered list in HTML to apply display function to
+6. create an HTML string and add monster details that want to be shown on the monsterDex
+7. filter monster array to only show large monsters
+8. create a function to pull data of individual monsters from api when selected
+9. create an if statement to bypass nonexistent numbers when clicked on (api was broken)
+10. create a function to display a pop up window when a monster is clicked on
+11. invoke the display function to the select function so when a monster in selected, the monsters info will display on the popup
+12. create an HTML string for the specific information to be displayed on the popup window
+13. map information that is grouped in an array in order to display on popup window
+14. add HTML string to pokedex dom element in order for popup to show 
+15. add close button to popup HTML string
+16. create a function to close the popup window when clicked on
+17. add and assign images to HTML string using a template literal to display monsters based on index of monster in array
+18. add button for theme to play when clicked on 
+19. create a function for theme to play when button is clicked on
+20. add and assign themes to HTML string using a template literal to play theme music for monsters that have it
+21. style
+22. style
+23. animate
+24. style
+25. profit
 
 
 
