@@ -67,7 +67,6 @@ const selectMonster = async (id) => {
 };
 //create popup to display info for individual monster
 const displayPopUp = (monst) => {
-
     if(monst.id >= 46) {
         monst.id = monst.id - 2;
     } 

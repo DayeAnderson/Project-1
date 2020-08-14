@@ -3,6 +3,9 @@
 ### Motivation:
 Since its release in early 2018, I've been a hardcore fan of Monster Hunter World. Its captivating landscapes, world environment, wide variety of weapons to choose from, intricate character building, high skill cap, and of course, its huge roster of monsters to capture and/or slay has given me this never before felt immersive experience in a video game. I've accumulated over 1600 hours in Monster Hunter World and can easily say it's one of my top 5 favorite games of all time. With the task to create a project, I decided this was the perfect opportunity to create an informational catalogue for the monsters of Monster Hunter World to give users an idea of what these monsters are, how they appear in game, their habitats, what they're capable of, and what their weaknesses are.
 
+### Run Application
+http://themonsterdex.surge.sh/
+
 ### User Stories
 * AAU(As A User), I can click on a selection of windows shown on screen to go further into the directory leading to an individual monster that displays information on the monster
 * AAU, I can go to the previous page from within the directory by clicking on the left arrow icon
@@ -48,5 +51,9 @@ Since its release in early 2018, I've been a hardcore fan of Monster Hunter Worl
 #### After clicking on a monster you will be redirected to this page displaying the slected monster's information
 ![Image of Home/Main page](images/3-Monster-Details.png)
 
+# DISCLAIMER
+Official Website : http://www.capcom.co.jp/
+©CAPCOM CO., LTD. 2018, 2019 ALL RIGHTS RESERVED
 
-
+*I DO NOT OWN THIS MUSIC, even if I have the soundtrack or album.*
+*My purpose is sharing so everyone can enjoy this, too!*
