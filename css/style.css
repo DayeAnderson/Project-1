@@ -24,7 +24,7 @@ body {
     padding-inline-start: 0;
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-    grid-gap: 10px;
+    grid-gap: 1px;
 }
 .popup {
     position: fixed;
@@ -44,13 +44,6 @@ body {
     padding: 10px 20px;
     border: none;
     border-radius: 5px;
-}
-.card-image {
-    height: 300px;
-    position: relative;
-    display: flex;
-    left: 430px;
-    bottom: 30px;
 }
 .cards {
     color: rgba(126, 78, 7, 0.973);
@@ -83,13 +76,22 @@ button:hover {
     color: white;
     background-color: rgb(81, 206, 92);
 }
-#ailInfo {
-    padding-inline-start: 0;
-    margin: 0;
-}
 #blight {
     text-align: center;
 }
 #blizzy {
     height: 40px;
+}
+@media only screen and (max-width: 1450px) {
+    .cards {
+        font-size: 22px;
+    }
+}
+@media only screen and (max-width: 800px) {
+    .popup {
+        width: 65vh;
+    }
+    .card {
+        width: 300px;
+    }
 }

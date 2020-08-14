@@ -71,12 +71,9 @@ const displayPopUp = (monst) => {
     if(monst.id >= 46) {
         monst.id = monst.id - 2;
     } 
-    if (monst.species !== 'elder dragon') {
-        
-    }
     const htmlString = `
     <div class = "popup">
-    <div>
+    <div id = "window">
         <button id = "closeBtn"
         onclick = "closePopup()">X</
         button>
