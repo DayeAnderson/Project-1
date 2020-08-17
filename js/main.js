@@ -17,7 +17,6 @@ const fetchMonsters = async () => {
         weaknesses: result.weaknesses.map((weaknesses) => weaknesses.element + ": " + weaknesses.stars).join(', '),
         id: index + 1
     }));
-    console.log(monster)
     displayMonster(monster);
 };
 //fetch second api
@@ -25,14 +24,12 @@ const fetchAilments = async () => {
     const url = `https://mhw-db.com/ailments/`;
     const res = await fetch(url);
     const dataA = await res.json();
-    console.log(dataA)
     const ailments = dataA.map((result, index) => ({ 
         ...result.url,
         blight: result.name,
         info: result.description,
         id: index
     }));
-    console.log(ailments);
     displayAilments(ailments)
     };
     //create function to display ailments from second api
@@ -88,7 +85,6 @@ const displayPopUp = (monst) => {
         </div>
     </div>`;
     monsterDex.innerHTML = htmlString + monsterDex.innerHTML 
-    console.log(htmlString)
 };
 //create close button for popup
 const closePopup = () => {

@@ -42,6 +42,11 @@ http://the-monsterdex.surge.sh/
 24. style
 25. profit
 
+## Technology Used
+* HTML
+* CSS
+* Javascript
+
 ## Screenshots
 #### Main Page
 ![Screenshot of first page](images/screen1.png)
